@@ -56,6 +56,13 @@ class Boy:
     def enter_sleep(self):
         self.frame = 0
 
+    def enter_auto_run(self):
+        self.auto_run.enter()
+
+    @property
+    def is_invincible(self):
+        return self.state == 'AUTO_RUN'
+
     def wake_up_from_space(self):
         if self.state == 'SLEEP':
             self.wake_up()
