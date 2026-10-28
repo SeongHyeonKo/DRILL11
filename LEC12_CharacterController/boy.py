@@ -107,6 +107,14 @@ class Boy:
         elif self.state == 'AUTO_RUN':
             self.auto_run.update(now, dt)
 
+    def draw_running(self, scale=1.0, y_offset=0.0):
+        row = 100 if self.face_dir == 1 else 0
+        size = 100 * scale
+        self.image.clip_draw(
+            self.frame * 100, row, 100, 100,
+            self.x, self.y + y_offset, size, size,
+        )
+
     def draw(self):
         if self.state == 'SLEEP':
             # Rotate the standing sprite onto its side to show the boy lying down.
