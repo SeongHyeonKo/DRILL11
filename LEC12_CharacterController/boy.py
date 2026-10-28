@@ -76,7 +76,7 @@ class Boy:
             self.held_directions.remove(direction)
         self.held_directions.append(direction)
         self.face_dir = direction
-        if self.state in ('IDLE', 'SLEEP'):
+        if self.state in ('IDLE', 'SLEEP', 'AUTO_RUN'):
             self.start_running()
 
     def release_direction(self, direction):
