@@ -4,6 +4,8 @@ import time
 from pico2d import load_image
 from transitions import Machine
 
+from auto_run import AutoRun
+
 
 class Boy:
     FRAME_INTERVAL = 0.12
@@ -26,6 +28,7 @@ class Boy:
         self.held_directions = []
         self.run_speed = 200
         self.image = load_image('animation_sheet.png')
+        self.auto_run = AutoRun(self)
         self.machine = Machine(
             model=self,
             states=Boy.states,
