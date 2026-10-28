@@ -96,14 +96,16 @@ class Boy:
         if self.state == 'IDLE':
             if now - self.idle_since >= 5.0:
                 self.go_to_sleep()
-            elif now - self.frame_time >= 0.12:
+            elif now - self.frame_time >= self.FRAME_INTERVAL:
                 self.frame = (self.frame + 1) % 8
                 self.frame_time = now
         elif self.state == 'RUN':
             self.x = max(50, min(750, self.x + self.face_dir * self.run_speed * dt))
-            if now - self.frame_time >= 0.12:
+            if now - self.frame_time >= self.FRAME_INTERVAL:
                 self.frame = (self.frame + 1) % 8
                 self.frame_time = now
+        elif self.state == 'AUTO_RUN':
+            self.auto_run.update(now, dt)
 
     def draw(self):
         if self.state == 'SLEEP':
