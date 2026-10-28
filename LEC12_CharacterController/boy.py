@@ -125,9 +125,12 @@ class Boy:
             )
             return
 
+        if self.state == 'AUTO_RUN':
+            self.auto_run.draw()
+            return
+
         if self.state == 'RUN':
-            row = 100 if self.face_dir == 1 else 0
-            self.image.clip_draw(self.frame * 100, row, 100, 100, self.x, self.y)
+            self.draw_running()
         elif self.face_dir == 1:
             self.image.clip_draw(self.frame * 100, 300, 100, 100, self.x, self.y)
         else:
