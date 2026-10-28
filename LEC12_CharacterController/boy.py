@@ -63,6 +63,10 @@ class Boy:
     def is_invincible(self):
         return self.state == 'AUTO_RUN'
 
+    def start_auto_run_from_idle(self):
+        if self.state == 'IDLE':
+            self.start_auto_run()
+
     def wake_up_from_space(self):
         if self.state == 'SLEEP':
             self.wake_up()
