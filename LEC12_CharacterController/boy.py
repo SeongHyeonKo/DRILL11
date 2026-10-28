@@ -6,10 +6,13 @@ from transitions import Machine
 
 
 class Boy:
+    FRAME_INTERVAL = 0.12
+
     states = [
         {'name': 'IDLE', 'on_enter': 'restart_idle_timer'},
         {'name': 'RUN', 'on_enter': 'enter_run'},
         {'name': 'SLEEP', 'on_enter': 'enter_sleep'},
+        {'name': 'AUTO_RUN', 'on_enter': 'enter_auto_run'},
     ]
 
     def __init__(self):
