@@ -9,6 +9,7 @@ class AutoRun:
     SCALE = 1.6
     SCREEN_WIDTH = 800
     SPRITE_WIDTH = 100
+    SPRITE_HEIGHT = 100
 
     def __init__(self, boy):
         self.boy = boy
@@ -59,4 +60,6 @@ class AutoRun:
             self.boy.frame_time = now
 
     def draw(self):
-        self.boy.draw_running(scale=self.SCALE, y_offset=(self.SPRITE_WIDTH * self.SCALE - self.SPRITE_WIDTH) / 2)
+        size = self.SPRITE_WIDTH * self.SCALE
+        y_offset = (size - self.SPRITE_HEIGHT) / 2
+        self.boy.draw_running(scale=self.SCALE, y_offset=y_offset)
