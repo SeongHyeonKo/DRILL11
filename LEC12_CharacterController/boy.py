@@ -1,5 +1,6 @@
 import math
 import time
+from pathlib import Path
 
 from pico2d import load_image
 from transitions import Machine
@@ -27,7 +28,7 @@ class Boy:
         self.face_dir = 1
         self.held_directions = []
         self.run_speed = 200
-        self.image = load_image('animation_sheet.png')
+        self.image = load_image(str(Path(__file__).resolve().parent / 'animation_sheet.png'))
         self.auto_run = AutoRun(self)
         self.machine = Machine(
             model=self,
