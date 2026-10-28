@@ -51,6 +51,9 @@ class AutoRun:
 
         self.move_and_bounce(dt)
 
+        self.advance_animation(now)
+
+    def advance_animation(self, now):
         if now - self.boy.frame_time >= self.boy.FRAME_INTERVAL:
             self.boy.frame = (self.boy.frame + 1) % 8
             self.boy.frame_time = now
