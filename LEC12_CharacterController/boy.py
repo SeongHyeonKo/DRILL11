@@ -90,7 +90,7 @@ class Boy:
 
     def update(self):
         now = time.monotonic()
-        dt = now - self.last_update
+        dt = min(now - self.last_update, 0.1)
         self.last_update = now
 
         if self.state == 'IDLE':
