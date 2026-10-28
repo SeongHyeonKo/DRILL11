@@ -1,30 +1,47 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="760" height="330" viewBox="0 0 760 330">
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="940" height="440" viewBox="0 0 940 440">
   <defs>
     <marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
       <path d="M0,0 L10,4 L0,8 Z" fill="#334155"/>
     </marker>
+    <style>
+      text { font-family: sans-serif; }
+      .edge { fill: none; stroke: #334155; stroke-width: 2.3; marker-end: url(#arrow); }
+      .label { font-size: 13px; fill: #475569; }
+    </style>
   </defs>
-  <rect width="760" height="330" rx="18" fill="#f8fafc"/>
-  <text x="380" y="38" text-anchor="middle" font-family="sans-serif" font-size="20" font-weight="700" fill="#0f172a">Boy State Machine</text>
-  <circle cx="38" cy="158" r="7" fill="#0f172a"/>
-  <path d="M45 158 H80" stroke="#334155" stroke-width="2.5" marker-end="url(#arrow)"/>
-  <rect x="95" y="122" width="140" height="72" rx="36" fill="#dbeafe" stroke="#2563eb" stroke-width="2.5"/>
-  <text x="165" y="165" text-anchor="middle" font-family="sans-serif" font-size="21" font-weight="700" fill="#1e3a8a">IDLE</text>
-  <rect x="310" y="122" width="140" height="72" rx="36" fill="#dcfce7" stroke="#16a34a" stroke-width="2.5"/>
-  <text x="380" y="165" text-anchor="middle" font-family="sans-serif" font-size="21" font-weight="700" fill="#166534">RUN</text>
-  <rect x="570" y="122" width="140" height="72" rx="36" fill="#fef3c7" stroke="#d97706" stroke-width="2.5"/>
-  <text x="640" y="165" text-anchor="middle" font-family="sans-serif" font-size="21" font-weight="700" fill="#92400e">SLEEP</text>
-  <path d="M235 143 H302" stroke="#334155" stroke-width="2.5" marker-end="url(#arrow)"/>
-  <text x="268" y="130" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#475569">LEFT / RIGHT down</text>
-  <path d="M310 177 H243" stroke="#334155" stroke-width="2.5" marker-end="url(#arrow)"/>
-  <text x="276" y="213" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#475569">direction key up</text>
-  <path d="M208 122 C280 60 528 60 596 122" fill="none" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
-  <text x="402" y="76" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#475569">5 seconds in IDLE</text>
-  <path d="M570 176 C510 252 282 252 224 192" fill="none" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
-  <text x="402" y="270" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#475569">SPACE</text>
-  <path d="M640 122 C640 35 380 35 380 114" fill="none" stroke="#334155" stroke-width="2" marker-end="url(#arrow)"/>
-  <text x="520" y="48" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#475569">LEFT / RIGHT down</text>
-  <text x="165" y="225" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#475569">Idle animation</text>
-  <text x="380" y="225" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#475569">Run animation + movement</text>
-  <text x="640" y="225" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#475569">Lying down</text>
+  <rect width="940" height="440" rx="18" fill="#f8fafc"/>
+  <text x="470" y="38" text-anchor="middle" font-size="22" font-weight="700" fill="#0f172a">Boy State Machine</text>
+
+  <circle cx="38" cy="164" r="7" fill="#0f172a"/>
+  <path class="edge" d="M45 164 H86"/>
+
+  <rect x="100" y="128" width="140" height="72" rx="36" fill="#dbeafe" stroke="#2563eb" stroke-width="2.5"/>
+  <text x="170" y="171" text-anchor="middle" font-size="21" font-weight="700" fill="#1e3a8a">IDLE</text>
+  <rect x="380" y="128" width="140" height="72" rx="36" fill="#dcfce7" stroke="#16a34a" stroke-width="2.5"/>
+  <text x="450" y="171" text-anchor="middle" font-size="21" font-weight="700" fill="#166534">RUN</text>
+  <rect x="665" y="128" width="185" height="72" rx="36" fill="#f3e8ff" stroke="#9333ea" stroke-width="2.5"/>
+  <text x="757" y="171" text-anchor="middle" font-size="20" font-weight="700" fill="#6b21a8">AUTO_RUN</text>
+  <rect x="380" y="310" width="140" height="72" rx="36" fill="#fef3c7" stroke="#d97706" stroke-width="2.5"/>
+  <text x="450" y="353" text-anchor="middle" font-size="21" font-weight="700" fill="#92400e">SLEEP</text>
+
+  <path class="edge" d="M240 148 H372"/>
+  <text class="label" x="306" y="139" text-anchor="middle">LEFT / RIGHT down</text>
+  <path class="edge" d="M380 183 H248"/>
+  <text class="label" x="314" y="220" text-anchor="middle">all direction keys up</text>
+
+  <path class="edge" d="M172 128 C215 66 714 66 754 120"/>
+  <text class="label" x="465" y="73" text-anchor="middle">A key (IDLE only)</text>
+  <path class="edge" d="M690 200 C567 276 320 276 220 200"/>
+  <text class="label" x="459" y="270" text-anchor="middle">5 seconds elapsed</text>
+  <path class="edge" d="M665 164 H528"/>
+  <text class="label" x="596" y="153" text-anchor="middle">direction key cancels</text>
+
+  <path class="edge" d="M218 200 C274 267 342 296 405 310"/>
+  <text class="label" x="292" y="276" text-anchor="middle">5 seconds in IDLE</text>
+  <path class="edge" d="M380 344 C304 328 249 275 203 201"/>
+  <text class="label" x="296" y="350" text-anchor="middle">SPACE</text>
+  <path class="edge" d="M450 310 V208"/>
+  <text class="label" x="505" y="266">LEFT / RIGHT down</text>
+
+  <text x="470" y="414" text-anchor="middle" font-size="12" fill="#64748b">AUTO_RUN: 5 seconds, faster and enlarged, edge bounce, invincibility flag</text>
 </svg>
