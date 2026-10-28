@@ -1,4 +1,4 @@
-﻿import time
+import time
 
 
 class AutoRun:
@@ -23,12 +23,15 @@ class AutoRun:
         self.boy.frame = 0
         self.boy.frame_time = self.started_at
 
+    def has_expired(self, now):
+        return self.started_at is not None and now - self.started_at >= self.DURATION
+
     def update(self, now, dt):
         if self.started_at is None:
             self.enter()
             return
 
-        if now - self.started_at >= self.DURATION:
+        if self.has_expired(now):
             self.boy.finish_auto_run()
             return
 
