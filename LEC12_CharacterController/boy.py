@@ -36,8 +36,10 @@ class Boy:
             transitions=[
                 {'trigger': 'go_to_sleep', 'source': 'IDLE', 'dest': 'SLEEP'},
                 {'trigger': 'start_running', 'source': 'IDLE', 'dest': 'RUN'},
-                {'trigger': 'start_running', 'source': 'SLEEP', 'dest': 'RUN'},
+                {'trigger': 'start_running', 'source': ['SLEEP', 'AUTO_RUN'], 'dest': 'RUN'},
                 {'trigger': 'stop_running', 'source': 'RUN', 'dest': 'IDLE'},
+                {'trigger': 'start_auto_run', 'source': 'IDLE', 'dest': 'AUTO_RUN'},
+                {'trigger': 'finish_auto_run', 'source': 'AUTO_RUN', 'dest': 'IDLE'},
                 {'trigger': 'wake_up', 'source': 'SLEEP', 'dest': 'IDLE'},
             ],
         )
