@@ -26,15 +26,7 @@ class AutoRun:
     def has_expired(self, now):
         return self.started_at is not None and now - self.started_at >= self.DURATION
 
-    def update(self, now, dt):
-        if self.started_at is None:
-            self.enter()
-            return
-
-        if self.has_expired(now):
-            self.boy.finish_auto_run()
-            return
-
+    def move_and_bounce(self, dt):
         left = self.half_width
         right = self.SCREEN_WIDTH - self.half_width
         next_x = self.boy.x + self.boy.face_dir * self.SPEED * dt
@@ -47,6 +39,17 @@ class AutoRun:
                 next_x = left + (left - next_x)
                 self.boy.face_dir = 1
         self.boy.x = next_x
+
+    def update(self, now, dt):
+        if self.started_at is None:
+            self.enter()
+            return
+
+        if self.has_expired(now):
+            self.boy.finish_auto_run()
+            return
+
+        self.move_and_bounce(dt)
 
         if now - self.boy.frame_time >= self.boy.FRAME_INTERVAL:
             self.boy.frame = (self.boy.frame + 1) % 8
